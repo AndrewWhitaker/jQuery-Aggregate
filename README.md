@@ -62,6 +62,8 @@ An optional function that recieves the element of the array being iterated over 
 
 ## Examples
 
+### Aggregate
+
 Simple use case: 
 
 ```JavaScript
@@ -99,5 +101,90 @@ var letters = "abcdefghijklmnopqrstuvwxyz"
     
     // message === "AGGREGATE"
 ```
+
+**Fiddle:** http://jsfiddle.net/9UakH/1/
+
+### Sum
+
+Simple use case:
+
+```JavaScript
+var total = $.sum([0, 6, 6, 17, 4, 6, 0, 19, 4]);
+
+$("#total").text(total);
+
+// total === 62
+```
+**Fiddle:** http://jsfiddle.net/sWrnP/1/
+
+Using a transformation function:
+
+```JavaScript
+var groceries = [
+    { name: 'bread', price: 2.50 },
+    { name: 'bologna', price: 4.00 },
+    { name: 'cheddar cheese', price: 3.50 },
+    { name: 'potato chips', price: 3.00 }
+], total = $.sum(groceries, function () {
+    return this.price;
+});
+
+// total === 13
+```
+
+**Fiddle:** http://jsfiddle.net/hfzc2/2/
+
+Using `$.fn.aggregate` on a jQuery object:
+
+```HTML
+<form id="groceries">
+    <table>
+        <thead>
+            <tr><td>Item</td><td>Price</td><td>Quantity</td></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="bread">Bread</label></td>
+                <td><span class="price">2.50</span></td>
+                <td><input id="bread" type="text" /></td>
+            </tr>
+            <tr>
+                <td><label for="bologna">Bologna</label></td>
+                <td><span class="price">4.00</span></td>
+                <td><input id="bologna" type="text" /></td>
+            </tr>            
+            <tr>
+                <td><label for="cheese">Cheese</label></td>
+                <td><span class="price">3.50</span></td>
+                <td><input id="cheese" type="text" /></td>
+            </tr>  
+            <tr>
+                <td><label for="chips">Chips</label></td>
+                <td><span class="price">3.00</span></td>
+                <td><input id="chips" type="text" /></td>
+            </tr>             
+        </tbody>
+    </table>
+    <p>Total: <span id="total"></span></p>
+</form>
+```
+
+```JavaScript
+$(document).ready(function () {
+    $("td input:text").on("change", function () {
+        var total = $("td input:text").sum(function () {
+            var quantity = this.value
+                , cost = parseFloat($(this).closest("tr").find(".price").text(), 10) || 0;
+            
+            return quantity * cost;
+        });
+        
+        $("#total").text(total);
+    });
+});
+```
+
+**Fiddle:** http://jsfiddle.net/WGYaw/1/
+
 ## Release History
 _(Nothing yet)_
