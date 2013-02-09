@@ -64,7 +64,7 @@ An optional function that recieves the element of the array being iterated over 
 
 ### Aggregate
 
-Simple use case: 
+#### Simple use case: 
 
 ```JavaScript
 var letters = "abcdefghijklmnopqrstuvwxyz"
@@ -76,7 +76,7 @@ var letters = "abcdefghijklmnopqrstuvwxyz"
 ```    
 **Fiddle:** http://jsfiddle.net/qRpeT/1/
 
-Supplying an initial seed value:
+#### Supplying an initial seed value:
 
 ```JavaScript
 var letters = "abcdefghijklmnopqrstuvwxyz"
@@ -89,7 +89,7 @@ var letters = "abcdefghijklmnopqrstuvwxyz"
 
 **Fiddle:** http://jsfiddle.net/T9JL5/1/
 
-Using a final "transformation function:"
+#### Using a final "transformation function:"
 
 ```JavaScript
 var letters = "abcdefghijklmnopqrstuvwxyz"
@@ -104,37 +104,7 @@ var letters = "abcdefghijklmnopqrstuvwxyz"
 
 **Fiddle:** http://jsfiddle.net/9UakH/1/
 
-### Sum
-
-Simple use case:
-
-```JavaScript
-var total = $.sum([0, 6, 6, 17, 4, 6, 0, 19, 4]);
-
-$("#total").text(total);
-
-// total === 62
-```
-**Fiddle:** http://jsfiddle.net/sWrnP/1/
-
-Using a transformation function:
-
-```JavaScript
-var groceries = [
-    { name: 'bread', price: 2.50 },
-    { name: 'bologna', price: 4.00 },
-    { name: 'cheddar cheese', price: 3.50 },
-    { name: 'potato chips', price: 3.00 }
-], total = $.sum(groceries, function () {
-    return this.price;
-});
-
-// total === 13
-```
-
-**Fiddle:** http://jsfiddle.net/hfzc2/2/
-
-Using `$.fn.aggregate` on a jQuery object:
+#### Using `$.fn.aggregate` on a jQuery object:
 
 ```HTML
 <form id="groceries">
@@ -185,6 +155,36 @@ $(document).ready(function () {
 ```
 
 **Fiddle:** http://jsfiddle.net/WGYaw/1/
+
+### Sum
+
+#### Simple use case:
+
+```JavaScript
+var total = $.sum([0, 6, 6, 17, 4, 6, 0, 19, 4]);
+
+$("#total").text(total);
+
+// total === 62
+```
+**Fiddle:** http://jsfiddle.net/sWrnP/1/
+
+#### Using a transformation function:
+
+```JavaScript
+var groceries = [
+    { name: 'bread', price: 2.50 },
+    { name: 'bologna', price: 4.00 },
+    { name: 'cheddar cheese', price: 3.50 },
+    { name: 'potato chips', price: 3.00 }
+], total = $.sum(groceries, function () {
+    return this.price;
+});
+
+// total === 13
+```
+
+**Fiddle:** http://jsfiddle.net/hfzc2/2/
 
 ## Release History
 _(Nothing yet)_
