@@ -87,5 +87,17 @@ var letters = "abcdefghijklmnopqrstuvwxyz"
 
 **Fiddle:** http://jsfiddle.net/T9JL5/1/
 
+Using a final "transformation function:"
+
+```JavaScript
+var letters = "abcdefghijklmnopqrstuvwxyz"
+    , message = $.aggregate([0, 6, 6, 17, 4, 6, 0, 19, 4], '',  function (working, element) {
+        return working + letters.charAt(element);
+    }, function (value) {
+        return value.toUpperCase();
+    });
+    
+    // message === "AGGREGATE"
+```
 ## Release History
 _(Nothing yet)_
