@@ -1,6 +1,8 @@
 # jQuery Aggregate
 
-Provides LINQ-like aggregate functionality
+Provides LINQ-like aggregate functionality to jQuery.
+
+While jQuery has many useful array utility functions (`$.map` and `$.grep` for example), there's no built-in functionality that aggregates values. This is a small plugin built on top of jQuery that provides that functionality.
 
 ## Getting Started
 
