@@ -190,3 +190,9 @@ var groceries = [
 
 ## Release History
 _(Nothing yet)_
+
+## Building from source
+
+* Clone this repository using `git clone`
+* Install grunt and dependencies using `npm install`
+* Build the plugin and run tests using the `grunt` command.
