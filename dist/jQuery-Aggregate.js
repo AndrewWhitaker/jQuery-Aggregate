@@ -1,6 +1,10 @@
-/*! jQuery Aggregate - v0.1.0 - 2013-02-05
-* https://github.com/Andrew/jQuery-Aggregate
-* Copyright (c) 2013 Andrew Whitaker; Licensed MIT */
+/*
+ * jQuery-Aggregate
+ * https://github.com/Andrew/jQuery-Aggregate
+ *
+ * Copyright (c) 2013 Andrew Whitaker
+ * Licensed under the MIT license.
+ */
 
 /*jslint unparam: true */
 /*global jQuery */
